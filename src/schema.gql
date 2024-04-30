@@ -1,0 +1,62 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: Int!
+  title: String!
+}
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type User {
+  id: Int!
+  username: String!
+  email: String!
+}
+
+type SignResponse {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+type Query {
+  todos: [Todo!]!
+  todo(id: Int!): Todo!
+  auth(id: Int!): Auth!
+}
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  removeTodo(id: Int!): Todo!
+  signup(signUpInput: SignUpInput!): SignResponse!
+  updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+  removeAuth(id: Int!): Auth!
+}
+
+input CreateTodoInput {
+  title: String!
+}
+
+input UpdateTodoInput {
+  title: String!
+  id: Int!
+}
+
+input SignUpInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UpdateAuthInput {
+  username: String
+  email: String
+  password: String
+  id: Int!
+}

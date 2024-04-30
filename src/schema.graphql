@@ -1,0 +1,91 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateSessionInput {
+  id: Float!
+  quantity: Float!
+}
+
+type CreateSessionResponseDto {
+  url: String!
+}
+
+input CreateTodoInput {
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createCheckoutSession(items: [CreateSessionInput!]!): CreateSessionResponseDto!
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  removeAuth(id: Int!): Auth!
+  removeProduct(id: Int!): Product!
+  removeTodo(id: Int!): Todo!
+  signup(signUpInput: SignUpInput!): SignResponse!
+  updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+}
+
+type Product {
+  createdAt: DateTime!
+  description: String!
+  id: Int!
+  image: String!
+  name: String!
+  price: Float!
+  quantity: Int!
+  updatedAt: DateTime!
+}
+
+type Query {
+  auth(id: Int!): Auth!
+  product(id: Int!): Product!
+  products: [Product!]!
+  todo(id: Int!): Todo!
+  todos: [Todo!]!
+}
+
+type SignResponse {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+input SignUpInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+type Todo {
+  id: Int!
+  title: String!
+}
+
+input UpdateAuthInput {
+  email: String
+  id: Int!
+  password: String
+  username: String
+}
+
+input UpdateTodoInput {
+  id: Int!
+  title: String!
+}
+
+type User {
+  email: String!
+  id: Int!
+  username: String!
+}
